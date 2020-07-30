@@ -1,0 +1,29 @@
+.form{
+    background: #e5e7e7;    
+    color:rgb(23, 40, 73);
+    margin-top: 100px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 3px rgb(154, 158, 163);
+    
+    
+}
+
+.form label{
+    margin-top: 1rem;
+    font-family: "McLaren", cursive;
+}
+
+button {
+    background: #93b5e0;
+    color: white;
+    
+}
+
+.container {
+    height: 100%;
+    padding: auto 2rem;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
