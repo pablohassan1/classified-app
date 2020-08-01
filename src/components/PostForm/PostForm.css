@@ -25,5 +25,14 @@ button {
 }
 
 .form-control {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+p {
+    color: red;
+    font-size: 10px;
+}
+
+.red{
+    border-color: red;
 }
