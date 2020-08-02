@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./PostForm.css";
 import { validate } from "./ValidatePostForm";
+import axios from "axios";
 
 
 export const PostForm = () => {
@@ -18,8 +19,22 @@ const handleChange  = event => {
 const handleSubmit  = event => {
   event.preventDefault();
   setErrors(validate(values));
+    
+const options = {
+  headers: {"Content-Type": "application/json" }
+}
 
-};
+  axios.post(" https://enigmatic-scrubland-87375.herokuapp.com/articles", JSON.stringify(values),options)
+  .then((response) => {
+    console.log(response);
+  }, (error) => {
+    console.log(error);
+  });
+
+ }
+  
+
+  
 
 
   return (

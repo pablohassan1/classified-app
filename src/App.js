@@ -42,8 +42,8 @@ class App extends Component {
         <main className="content-section">
           <Switch>
               <Route path="/post">
-                <Post />
-              </Route>
+                <Post />              
+              </Route>             
               <Route path="/about">
                 <About />
               </Route>
