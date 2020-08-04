@@ -3,7 +3,8 @@ html {
 }
 
 body {
-  height: 75%;
+  height: 100%;
+  width: inherit;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,4 +21,8 @@ code {
 
 #root {
   height: 100%;
+}
+
+App{
+  height: inherit;
 }

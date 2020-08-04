@@ -1,7 +1,9 @@
 .content-section {
-    margin: 0 1rem;
+    margin: 3% 1rem;
     position: relative;
-    top: -1rem;   
+    top: 56px;
+    height: max-content;
+     
 }
 
 .footer {
@@ -9,3 +11,8 @@
     text-align: center;
     color: #acb1ac;
 }
+
+.App{
+    height: inherit;
+}
+

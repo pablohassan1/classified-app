@@ -5,8 +5,7 @@
     position: fixed;
     background: #93b5e1;
     height: 56px;
-    z-index: 100;
-    margin-bottom: 1rem;
+    z-index: 100;    
 }
 
 .toolbar__logo a {

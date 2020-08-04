@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./PostForm.css";
 import { validate } from "./ValidatePostForm";
 import axios from "axios";
@@ -6,8 +6,9 @@ import axios from "axios";
 
 export const PostForm = () => {
   const [values, setValues] = useState({name:"", email:"", title:"", content:""});
-  const [errors, setErrors] = useState({name:"", email:"", title:"", content:""});
-  
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+ 
   
 const handleChange  = event => {
   setValues({
@@ -16,25 +17,30 @@ const handleChange  = event => {
   });
 };
 
-const handleSubmit  = event => {
-  event.preventDefault();
-  setErrors(validate(values));
-    
-const options = {
-  headers: {"Content-Type": "application/json" }
-}
+  const handleSubmit  = event => {
+    event.preventDefault();
+    setErrors(validate(values));
+    setIsSubmitting(true);    
+  } 
 
-  axios.post(" https://enigmatic-scrubland-87375.herokuapp.com/articles", JSON.stringify(values),options)
-  .then((response) => {
-    console.log(response);
-  }, (error) => {
-    console.log(error);
-  });
+  useEffect(()=>{
+    if(Object.keys(errors) && isSubmitting){
+      const options = {
+        headers: {"Content-Type": "application/json" }
+      }
+      
+        axios.post(" https://enigmatic-scrubland-87375.herokuapp.com/articles", JSON.stringify(values),options)
+        .then((response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
+    }
+    // eslint-disable-next-line
+  },[errors]);
 
- }
-  
 
-  
+
 
 
   return (
