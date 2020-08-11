@@ -1,8 +1,19 @@
 import React from "react";
 import {  Header } from "../Header/Header";
+import "./Home.css";
+import CardList from "../CardList/CardList";
+
+
 
 export const Home = () => {
+
+    
+    
     return (
-        <Header headerText="Home" />
+        <div className="wrapper">                
+                           
+            <Header headerText="The truth is out here.." />
+            <CardList />            
+        </div>
     )
 }

@@ -3,14 +3,16 @@
     left: 0;
     width: 100%;
     position: fixed;
-    background: #93b5e1;
+    /* background: #93b5e1; */
+    background:#FFFFFF;
     height: 56px;
-    z-index: 100;
-    margin-bottom: 1rem;
+    z-index: 100;    
 }
 
 .toolbar__logo a {
-    color: white;
+
+    color: black;
+    /* color: white; */
     text-decoration: none;
     font-size: 1.5rem;
     margin-left: 1rem;
@@ -25,17 +27,21 @@
 }
 
 .toolbar__navigation-items a {
-    color: white;
+    color: black;
+    font-size: 1rem;
     text-decoration: none;
 
 }
 
 .toolbar__navigation-items a:hover {
-    color: #848ccf;
+    text-shadow: black;
+    text-decoration: underline;
+    /* color: #848ccf; */
 }
 
 .toolbar__navigation-items a:active {
-    color: #3282b8;
+    text-shadow: black;
+    /* color: #3282b8; */
 } 
 
 .toolbar__navigation-items ul {
@@ -58,6 +64,10 @@
 @media (max-width: 768px){
     .toolbar__navigation-items{
         display: none;
+        
+    }
+    i.fas {
+        display: none;
     }
 }
 
@@ -70,3 +80,10 @@
         margin-left: 0;
     }   
 }
+
+i.fas {
+    margin-right: 10px;
+    color: #5E25FF;
+}
+
+
