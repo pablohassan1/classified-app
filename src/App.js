@@ -7,8 +7,16 @@ import Backdrop from "./components/Backdrop/Backdrop";
 import { Home } from "./components/Home/Home";
 import { About } from "./components/About/About"; 
 import { Post } from "./components/Post/Post";
+import SingleStory from "./components/SingleStory/SingleStory";
 
-//36.42
+const story = ({match})=>{
+  return (
+    <SingleStory 
+      story={match.params.storyid}
+    />
+  )
+}
+
 
 class App extends Component {
   state = {
@@ -47,6 +55,7 @@ class App extends Component {
               <Route path="/about">
                 <About />
               </Route>
+              <Route path="/story/:storyid" component={story}/>                             
               <Route path="/">
                 <Home />
               </Route>

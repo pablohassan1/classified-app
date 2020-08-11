@@ -1,8 +1,9 @@
 .content-section {
-    margin: 3% 1rem;
+    margin: 3% 0;
     position: relative;
     top: 56px;
     height: max-content;
+    text-align: center;
      
 }
 

@@ -8,13 +8,13 @@ const toolbar = props => (
             <div className="toolbar__toggle-button">
                 <SideDrawerToggleButton click={props.drawerClickHandler} />
             </div>
-            <div className="toolbar__logo"><a href="/">classified</a></div>
+            <div className="toolbar__logo"><a href="/"><i className="fas fa-user-secret fa-1x"></i>classified</a></div>
             <div className="spacing" />
             <div className="toolbar__navigation-items">
                 <ul>
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="/about">ABOUT</a></li>                    
-                    <li><a href="/post">MAKE A POST</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>                    
+                    <li><a href="/post">Post a story</a></li>
                 </ul>
                 
             </div>

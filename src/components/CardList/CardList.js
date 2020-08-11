@@ -25,13 +25,18 @@ class CardList extends Component{
 
     render(){
         return(
-            <div className="card-list">
-            {this.state.stories.map(story=>(
-                <StoryCard 
-                    story={story}                    
-                    key={story._id}                    
-                />
+            <div className="card-list row d-flex justify-content-center text-center">
+            
+                {this.state.stories.map(story=>(
+                    
+                        <StoryCard 
+                            className="col-lg-4"
+                            story={story}                    
+                            key={story._id}                   
+                        />
+                   
             ))}
+            
 
         </div>
 

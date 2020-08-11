@@ -11,7 +11,7 @@ export const validate = (values) => {
 
     const containsSpecialCharacters = (str) => {
         // eslint-disable-next-line
-        var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+        var regex = /[^a-zA-Z\d\s:]/g;
             return regex.test(str);
         
     }
@@ -41,14 +41,16 @@ export const validate = (values) => {
     }else if (containsSpecialCharacters(values.title)){
         errors.title = "Title cannot contain special characters";
         
+    }else if (values.title.length > 20){
+        errors.title = "Title cannot have more than 20 characters";
     }
 
     // content
     if(!values.content){
         errors.content = "You need to provide something here";
         
-    }else if(values.content.length < 500){
-        errors.content = "Your story needs to have at least 500 characters";
+    }else if(values.content.length < 250){
+        errors.content = "Your story needs to have at least 250 characters";
         
     }else if(values.content.length > 3000){
         errors.content = "Your story is too long, keep it under 3000 characters please";

@@ -1,6 +1,7 @@
-.header {
-    margin-top: 3%;
+h1.header {
+    margin: 3% 0;
     font-family:  "McLaren", cursive;
     font-size: 3rem;
+    color: dimgray;
     
 }

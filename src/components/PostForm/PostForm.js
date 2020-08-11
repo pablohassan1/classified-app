@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import "./PostForm.css";
 import { validate } from "./ValidatePostForm";
 import axios from "axios";
@@ -8,8 +9,14 @@ export const PostForm = () => {
   const [values, setValues] = useState({name:"", email:"", title:"", content:""});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
- 
+  const [isRedirecting, setIsRedirecting] = useState(false);
   
+  let history = useHistory();
+  
+if(isRedirecting){
+  history.push("/");
+}
+
 const handleChange  = event => {
   setValues({
     ...values,
@@ -32,9 +39,12 @@ const handleChange  = event => {
         axios.post(" https://enigmatic-scrubland-87375.herokuapp.com/articles", JSON.stringify(values),options)
         .then((response) => {
           console.log(response);
+          setIsRedirecting(true);                          
         }, (error) => {
           console.log(error);
         });
+
+
     }
     // eslint-disable-next-line
   },[errors]);

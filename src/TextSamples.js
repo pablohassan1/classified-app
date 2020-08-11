@@ -1,6 +1,0 @@
-export const text = {
-    headerHome: "Home",
-    headerAbout: "About",
-    textHome: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    textAbout: "Vitae tortor condimentum lacinia quis vel eros donec ac odio. In egestas erat imperdiet sed. Justo donec enim diam vulputate ut pharetra. Faucibus turpis in eu mi bibendum neque. Pharetra convallis posuere morbi leo urna molestie at. Enim tortor at auctor urna nunc id cursus. Placerat vestibulum lectus mauris ultrices. Ut eu sem integer vitae justo. Diam sit amet nisl suscipit adipiscing. Quam pellentesque nec nam aliquam sem et. Fusce id velit ut tortor pretium viverra suspendisse potenti. Nibh sit amet commodo nulla facilisi nullam. Sed augue lacus viverra vitae congue eu consequat ac felis. Natoque penatibus et magnis dis parturient."
-};

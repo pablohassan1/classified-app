@@ -10,9 +10,9 @@ export const Home = () => {
     
     
     return (
-        <div>
-            <i className="fas fa-user-secret fa-6x"></i>    
-            <Header headerText="The truth is out there.." />
+        <div className="wrapper">                
+                           
+            <Header headerText="The truth is out here.." />
             <CardList />            
         </div>
     )
