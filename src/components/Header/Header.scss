@@ -1,15 +1,9 @@
 h1.header {
-    margin: 8% 0 2% 0;
+    margin-top: 5%;
     font-family:  "McLaren", cursive;
     font-size: 3rem;
     color: rgb(88, 85, 85);    
 }
-
-// @media  (max-width: 344px){
-//     h1.header{
-//         font-size: 1rem;
-//     }
-// }
 
 @media  (max-width: 424px){
     h1.header{
