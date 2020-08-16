@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"; 
+import "./SingleStory.scss";
+import { Header } from "../Header/Header";
 
 class SingleStory extends Component {
     constructor(props){
@@ -32,10 +34,10 @@ class SingleStory extends Component {
 
     render() {
         return (
-            <div>
-                <h1>{this.state.title}</h1>
-                <p>{this.state.content}</p>
-                <p>{this.state.name}</p>
+            <div className="story-wrapper">
+                <Header headerText={this.state.title} />                
+                <p className="story-content">{this.state.content}</p>
+                <p className="story-signature">{this.state.name}</p>
             </div>
         );
     }

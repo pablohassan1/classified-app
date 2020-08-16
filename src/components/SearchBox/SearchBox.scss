@@ -1,0 +1,36 @@
+
+.search {
+    border: none;
+    border-bottom: 1px solid;   
+    text-align: center;  
+    padding-left: 7px; 
+    margin: 10px 0 20px;  
+    text-decoration: none;   
+    background: transparent;   
+    
+}
+
+.search::-webkit-input-placeholder { 
+    color: #aaa5a5;
+  }
+  
+  .search::-moz-placeholder {
+    color: #aaa5a5;
+  }
+  .search:-ms-input-placeholder {
+    color: #aaa5a5;
+  }
+  .search:placeholder {
+    color: #aaa5a5;
+  }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 .card-container{
   /* margin: 0 auto; */
-  width: 340px;
+  width: 300px;
   background: #FFFFFF;
   display: flex;
   flex-direction: column;
-  border: 0.2px solid rgb(197, 193, 193);
+  border: 0.2px solid rgb(233, 230, 230);
   border-radius: 10px;
   padding: 25px;
   cursor: pointer;
@@ -22,11 +22,21 @@
   text-decoration: none !important;
 }
 
-p,h5{
+.card-container p,h5{
   text-align: left;
   
 }
 
-a{
-  text-decoration: none !important;
+h5.story-card-header{
+  color: #3282b8;
+}
+
+p.story-card-content{
+  color: #318fb5;
+}
+
+@media(max-width: 455px){
+  .card-container {
+      padding: 25px 10px;
+  }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Toolbar.css";
+import "./Toolbar.scss";
 import SideDrawerToggleButton from "../SideDrawer/SideDrawerToggleButton";
 
 const toolbar = props => (

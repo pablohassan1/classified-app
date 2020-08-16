@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import {  BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
-import { Home } from "./components/Home/Home";
+import  Home  from "./components/Home/Home";
 import { About } from "./components/About/About"; 
-import { Post } from "./components/Post/Post";
+import { PostForm } from "./components/PostForm/PostForm";
 import SingleStory from "./components/SingleStory/SingleStory";
 
 const story = ({match})=>{
@@ -42,15 +42,17 @@ class App extends Component {
     }
 
   return (
+   
     <Router>
-      <div className="App">
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+      <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+      
+        
         <SideDrawer show={this.state.sideDrawerOpen}/>
         {backdrop}      
         <main className="content-section">
           <Switch>
               <Route path="/post">
-                <Post />              
+                <PostForm />              
               </Route>             
               <Route path="/about">
                 <About />
@@ -60,10 +62,9 @@ class App extends Component {
                 <Home />
               </Route>
             </Switch>
-          </main>
-          <p className="footer">© Jan Brezina 2020</p>   
-        </div>      
-    </Router> 
+          </main>          
+        
+    </Router>    
     
   );
   }
