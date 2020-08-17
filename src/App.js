@@ -23,12 +23,13 @@ class App extends Component {
     sideDrawerOpen: false
   }
 
+  // zmeni state.sideDrawerOpen na opacnou hodnotu
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return {sideDrawerOpen: !prevState.sideDrawerOpen};
     });
   };
-
+ // zmeni state.sideDrawerOpen na false
   backdropClickHandler = () => {
     this.setState(() => ({sideDrawerOpen: false}));
   };
@@ -36,7 +37,7 @@ class App extends Component {
 
   render() {
     let backdrop;
-
+ // pokud je state.sideDrawerOpen true  -- backdrop = <Backdrop />
     if (this.state.sideDrawerOpen){      
       backdrop = <Backdrop backDropClick={this.backdropClickHandler}/>;
     }
@@ -46,9 +47,10 @@ class App extends Component {
     <Router>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
       
-        
+  {/* zobrazi se pokud state.sideDrawerOpen: true */}
         <SideDrawer show={this.state.sideDrawerOpen}/>
-        {backdrop}      
+        {backdrop}  
+
         <main className="content-section">
           <Switch>
               <Route path="/post">
