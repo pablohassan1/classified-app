@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./Toolbar.scss";
 import SideDrawerToggleButton from "../SideDrawer/SideDrawerToggleButton";
 import { Link } from "react-router-dom";

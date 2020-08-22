@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {  BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {   BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.scss";
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
@@ -53,19 +53,12 @@ class App extends Component {
 
         <main className="content-section">
           <Switch>
-              <Route path="/post">
-                <PostForm />              
-              </Route>             
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/story/:storyid" component={story}/>                             
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </main>          
-        
+            <Route exact path="/post" component={PostForm}/>                         
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/story/:storyid" component={story}/>                             
+            <Route exact path="/" component={Home}/>
+          </Switch>
+        </main>        
     </Router>    
     
   );
