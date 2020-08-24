@@ -1,12 +1,15 @@
 .row {
     text-align: center;
 }
+.form {
+  background: #FFFFFF;
+}
 
 .container {
     height: 100%;
-    background: #FFFFFF;    
+    background: #ffffff;    
     padding: 20px 20px 0;   
-    box-shadow: 5px 5px 5px -5px rgb(199, 195, 195);
+    // box-shadow: 5px 5px 5px -5px rgb(199, 195, 195);
 }
 
 .form-control {
@@ -14,7 +17,7 @@
     border: 0px;
     border-bottom: 0.5px solid #babadb;
     border-radius: 0;
-}
+  }
 
 
 p.error-text{
