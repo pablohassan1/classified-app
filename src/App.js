@@ -48,7 +48,7 @@ class App extends Component {
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
       
   {/* zobrazi se pokud state.sideDrawerOpen: true */}
-        <SideDrawer show={this.state.sideDrawerOpen}/>
+        <SideDrawer show={this.state.sideDrawerOpen} backdropClickHandler={this.backdropClickHandler}/>
         {backdrop}  
 
         <main className="content-section">

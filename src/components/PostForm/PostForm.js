@@ -48,10 +48,6 @@ const handleChange  = event => {
     // eslint-disable-next-line
   },[errors]);
 
-
-
-
-
   return (
     <div>
       <Header headerText="Share your story with the world!"/>
