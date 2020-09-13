@@ -1,25 +1,32 @@
-import React from "react";
-import "./Toolbar.scss";
-import SideDrawerToggleButton from "../SideDrawer/SideDrawerToggleButton";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Toolbar.scss';
+import SideDrawerToggleButton from '../SideDrawer/SideDrawerToggleButton';
+import { Link } from 'react-router-dom';
 
-const toolbar = props => (
-    <header className="toolbar">
-        <nav className="toolbar__navigation">
-            <div className="toolbar__toggle-button">
-                <SideDrawerToggleButton click={props.drawerClickHandler} />
+import { auth } from '../../firebase/firebase.utils';
+
+const toolbar = ({ drawerClickHandler, currentUser }) => (
+    <header className='toolbar'>
+        
+            <div className='toolbar__toggle-button'>
+                <SideDrawerToggleButton click={drawerClickHandler} />
             </div>
-            <div className="toolbar__logo"><a href="/"><i className="fas fa-user-secret fa-1x"></i>classified</a></div>
-            <div className="spacing" />
-            <div className="toolbar__navigation-items">
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>                   
-                    <li><Link to="/post">Post a story</Link></li>
-                </ul>
-                
+            
+            <div className='toolbar__logo'>
+                <Link to='/'><i className='fas fa-user-secret fa-1x'></i>classified</Link>
             </div>
-        </nav>
+            
+            <div className='options'>                
+                <Link className='option' to='/'>HOME</Link>
+                <Link className='option' to='/about'>ABOUT</Link>                 
+                <Link className='option' to='/post'>POST A STORY</Link>
+                {currentUser ?
+                    <div className='option'  onClick={()=>auth.signOut()}>SIGN OUT</div>
+                    :
+                    <Link className='option' to='/sign'>SIGN IN</Link>   
+                }                            
+            </div>
+        
     </header>
 )
 

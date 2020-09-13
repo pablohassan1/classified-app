@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {   BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.scss";
 import Toolbar from "./components/Toolbar/Toolbar";
@@ -8,6 +8,9 @@ import  Home  from "./components/Home/Home";
 import { About } from "./components/About/About"; 
 import { PostForm } from "./components/PostForm/PostForm";
 import SingleStory from "./components/SingleStory/SingleStory";
+import signInPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.page';
+
+import { auth } from './firebase/firebase.utils';
 
 const story = ({match})=>{
   return (
@@ -18,10 +21,29 @@ const story = ({match})=>{
 }
 
 
-class App extends Component {
-  state = {
-    sideDrawerOpen: false
+class App extends React.Component {
+constructor(){
+  super();
+
+  this.state = {
+    sideDrawerOpen: false,
+    currentUser: null
   }
+}
+
+unsubscribeFromAuth = null;
+
+
+componentDidMount(){
+  this.unsubscribeFromAuth =  auth.onAuthStateChanged(user=>{
+    this.setState({currentUser: user})
+    console.log(user);
+  })
+ }
+
+componentWillUnmount(){
+  this.unsubscribeFromAuth();
+}
 
   // zmeni state.sideDrawerOpen na opacnou hodnotu
   drawerToggleClickHandler = () => {
@@ -45,20 +67,24 @@ class App extends Component {
   return (
    
     <Router>
-      <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+      <Toolbar 
+      drawerClickHandler={this.drawerToggleClickHandler}
+      currentUser={this.state.currentUser}
+      />
       
   {/* zobrazi se pokud state.sideDrawerOpen: true */}
         <SideDrawer show={this.state.sideDrawerOpen} backdropClickHandler={this.backdropClickHandler}/>
         {backdrop}  
 
-        <main className="content-section">
+        
           <Switch>
             <Route exact path="/post" component={PostForm}/>                         
             <Route exact path="/about" component={About}/>
             <Route exact path="/story/:storyid" component={story}/>                             
             <Route exact path="/" component={Home}/>
+            <Route exact path='/sign' component={signInPage} />
           </Switch>
-        </main>        
+               
     </Router>    
     
   );
