@@ -10,5 +10,24 @@
     .buttons {
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 930px){
+            .spacing {
+                width: 20px;
+            }
+        }
+
+    }
+    @media(max-width: 930px){
+        .buttons {
+            justify-content: left;
+        }        
+    }
+}
+
+@media (max-width: 930px) {
+    .sign-in{
+        width: 100%;
+        padding-bottom: 120px;
     }
 }

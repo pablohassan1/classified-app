@@ -22,6 +22,11 @@
     font-family: "McLaren", cursive;
 }
 
+.toolbar__toggle-button {
+    display: flex;
+    align-items: center;
+}
+
 
 .options {
     width: 50%;
@@ -41,9 +46,9 @@
         display: none;
         
     }
-    i.fas {
-        display: none;
-    }
+    // i.fas {
+    //     display: none;
+    // }
 }
 
 @media (min-width: 769px){

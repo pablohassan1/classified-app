@@ -4,6 +4,7 @@ import './sign-up.styles.scss';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 
 class SignUp extends React.Component {
@@ -11,7 +12,7 @@ class SignUp extends React.Component {
         super()
 
         this.state = {
-            name: '',
+            displayName: '',
             email: '',
             password: '',
             confirmPassword: ''
@@ -23,13 +24,37 @@ class SignUp extends React.Component {
         this.setState({[name]:value});
     }
 
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
+        const { displayName, email, password, confirmPassword } = this.state;
+        
+        if (password !== confirmPassword){
+            alert('Passwords do not match!');
+            return;
+        } 
+
+        try{
+            const { user } = await auth.createUserWithEmailAndPassword( email, password);
+            await createUserProfileDocument(user, { displayName });
+
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            })
+        } 
+        catch(error){
+            console.log(error);
+            alert(error.message);
+        }
+        
+
     }
 
 
     render(){
-        const {name, email, password, confirmPassword} = this.state;
+        const {displayName, email, password, confirmPassword} = this.state;
 
         return (
             <div className='sign-up'>
@@ -39,11 +64,11 @@ class SignUp extends React.Component {
                 <form className='sign-up-form' onSubmit={this.handleSubmit} noValidate>
                     <FormInput 
                         type='text'
-                        name='name'
+                        name='displayName'
                         handleChange={this.handleChange}
                         label='Name'
                         required
-                        value={name}
+                        value={displayName}
                     />
                     <FormInput 
                         type='email'

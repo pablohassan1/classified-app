@@ -6,11 +6,8 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 
 const toolbar = ({ drawerClickHandler, currentUser }) => (
-    <header className='toolbar'>
-        
-            <div className='toolbar__toggle-button'>
-                <SideDrawerToggleButton click={drawerClickHandler} />
-            </div>
+    <header className='toolbar'>    
+           
             
             <div className='toolbar__logo'>
                 <Link to='/'><i className='fas fa-user-secret fa-1x'></i>classified</Link>
@@ -25,6 +22,10 @@ const toolbar = ({ drawerClickHandler, currentUser }) => (
                     :
                     <Link className='option' to='/sign'>SIGN IN</Link>   
                 }                            
+            </div>
+            
+            <div className='toolbar__toggle-button'>
+                <SideDrawerToggleButton click={drawerClickHandler} />
             </div>
         
     </header>
