@@ -10,6 +10,10 @@
     
 }
 
+.search:focus { 
+    outline: none;
+}
+
 .search::-webkit-input-placeholder { 
     color: #aaa5a5;
   }

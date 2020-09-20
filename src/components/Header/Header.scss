@@ -1,17 +1,24 @@
 h1.header {
-    margin-top: 5%;
+    margin: 0;
     font-family:  "McLaren", cursive;
-    font-size: 3rem;
-    color: rgb(88, 85, 85);    
+    font-size: 2.3rem;
+    color: rgb(88, 85, 85); 
+    text-align: center;   
 }
 
-@media  (max-width: 424px){
+@media  (max-width: 363px){
+    h1.header{
+        font-size: 1rem;
+    }
+}
+
+@media  (max-width: 440px){
     h1.header{
         font-size: 1.1rem;
     }
 }
 
-@media (min-width: 425px) and (max-width: 617px){
+@media (min-width: 441px) and (max-width: 617px){
     h1.header{
         font-size: 1.2rem;
     }
@@ -19,12 +26,12 @@ h1.header {
 
 @media (min-width: 618px) and (max-width: 879px){
     h1.header{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
 @media (min-width: 880px) and (max-width: 991px){
     h1.header{
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 }

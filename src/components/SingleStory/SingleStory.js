@@ -1,35 +1,44 @@
 import React, { Component } from 'react';
-import axios from "axios"; 
+
 import "./SingleStory.scss";
 import { Header } from "../Header/Header";
 
+import { firestore } from '../../firebase/firebase.utils';
+
 class SingleStory extends Component {
     constructor(props){
-        super(props)
+        super(props);
 
         this.state = {
-            title: "",
-            content: "",
-            name: "",
-            id: this.props.story
+            title: '',
+            content: '',
+            name: '',
+            story: this.props.story,
+            user: this.props.user
 
         }
-        console.log(this.state);
-    }
-    
-    
+        
+    }   
+
+
     componentDidMount(){
-        axios.get("https://enigmatic-scrubland-87375.herokuapp.com/articles/"  + this.state.id)
-        .then(response => {
-            console.log(response)
-            this.setState({
-                title: response.data.title,
-                content: response.data.content,
-                name: response.data.name
-            })
-        })
-        .catch(error => console.log(error))
+        
+        firestore.doc('/users/' + this.state.user + '/stories/' + this.state.story).get().then( doc  => {
+            if(doc.exists){
+                this.setState({
+                    title: doc.data().title,
+                    content: doc.data().story,
+                    name: doc.data().name,
+                    story: this.props.story,
+                    user: this.props.user
+                })
+            }
+        }).catch(error => {
+            console.log(error);
+        })        
     }
+
+     
 
 
     render() {

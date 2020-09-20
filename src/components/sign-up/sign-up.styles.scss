@@ -11,7 +11,17 @@
 
   @media (max-width: 930px) {
     .sign-up {
-      width: 100%;
+      width: 100%; 
+      
+      
+      .title,.sign-up-form{
+        text-align: center;
+      }
+
+      .sign-up-form {
+        transform: scale(1.1, 1.3);
+      }
+     
     }
   }
   

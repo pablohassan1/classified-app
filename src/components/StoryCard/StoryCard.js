@@ -1,27 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import "./StoryCard.scss";
-import { useHistory } from 'react-router-dom';
+
+import { withRouter } from 'react-router-dom';
 
 
-export const StoryCard = props => {
-    const [isRedirecting, setIsRedirecting] = useState(false); 
-    let history = useHistory();
+class StoryCard extends React.Component {
 
-    if(isRedirecting){
-        history.push("/story/" + props.story._id);
-      }
+  constructor(props){
+    super(props);
 
-    const handleClick = () => {
-        setIsRedirecting(true);
+    this.state = {
+      isRedirecting: false
+
     }
+  }
 
-
-      return (                
-                    <div className="card-container" onClick={handleClick}>
-                        <h5 className="story-card-header">{props.story.title.substring(0,19)}</h5>
-                        <p className="story-card-content">{props.story.content.substring(0,215)} ...</p>
-                    </div>                
-            )
+  handleClick = () => {
+    this.setState({
+      isRedirecting: true
+    })
+    this.props.history.push('/story/' + this.props.story.userId + '/' + this.props.story.id);
 }
+
+  render(){
+    return (                
+      <div className="card-container" onClick={() => this.handleClick()}>
+          <h5 className="story-card-header">{this.props.story.title.substring(0,19)}</h5>
+          <p className="story-card-content">{this.props.story.story.substring(0,215)} ...</p>
+      </div>                
+    )
+  }
+}
+
+export default withRouter(StoryCard);
+
 
 

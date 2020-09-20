@@ -13,6 +13,11 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
+    margin-bottom: 15px;
+
+    @media(max-width: 478px){
+      transform: scale(0.7, 0.7);
+    }
   
     &:hover {
       background-color: white;

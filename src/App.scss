@@ -13,7 +13,13 @@
 
 body{
     font-family: 'Open Sans Condensed', sans-serif;
-    padding: 0 40px 20px 40px;
+    padding: 0 40px 0 40px;
+}
+
+@media(max-width:418px){
+    body{
+        padding: 0 15px 35px 15px;
+    }
 }
 
 * {

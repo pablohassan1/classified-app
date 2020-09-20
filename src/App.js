@@ -6,17 +6,20 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
 import  Home  from "./components/Home/Home";
 import { About } from "./components/About/About"; 
-import { PostForm } from "./components/PostForm/PostForm";
+import NewForm from './components/new-form/new-form.component';
+// import { PostForm } from "./components/PostForm/PostForm";
 import SingleStory from "./components/SingleStory/SingleStory";
 import signInPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.page';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument, firestore } from './firebase/firebase.utils';
 
 
 const story = ({match})=>{
+
   return (
     <SingleStory 
-      story={match.params.storyid}
+      story={match.params.storyId}
+      user={match.params.userId}      
     />
   )
 }
@@ -28,11 +31,13 @@ constructor(){
 
   this.state = {
     sideDrawerOpen: false,
-    currentUser: null
+    currentUser: null,  
+    stories: []  
   }
 }
 
 unsubscribeFromAuth = null;
+unsubscribeFromStorage = null;
 
 
 componentDidMount(){
@@ -51,10 +56,25 @@ componentDidMount(){
       this.setState({currentUser:userAuth});
     }      
   })
+
+  //
+  this.unsubscribeFromStorage = firestore.collectionGroup('stories').onSnapshot(querySnapshot => {
+    var items =[];
+    querySnapshot.forEach(doc => {       
+
+        items.push({userId: doc.E_.path.segments[6],id:doc.id, name: doc.data().name, story:doc.data().story, title:doc.data().title })     
+
+    });
+    this.setState({stories: items}); 
+    console.log(this.state.stories)           
+  });
+      
 }
+
 
 componentWillUnmount(){
   this.unsubscribeFromAuth();
+  this.unsubscribeFromStorage();
 }
 
   // zmeni state.sideDrawerOpen na opacnou hodnotu
@@ -85,15 +105,15 @@ componentWillUnmount(){
       />
       
   {/* zobrazi se pokud state.sideDrawerOpen: true */}
-        <SideDrawer show={this.state.sideDrawerOpen} backdropClickHandler={this.backdropClickHandler}/>
+        <SideDrawer currentUser={this.state.currentUser} show={this.state.sideDrawerOpen} backdropClickHandler={this.backdropClickHandler}/>
         {backdrop}  
 
         
           <Switch>
-            <Route exact path="/post" component={PostForm}/>                         
+            <Route exact path="/post" component={() => <NewForm currentUser={this.state.currentUser} />} />                         
             <Route exact path="/about" component={About}/>
-            <Route exact path="/story/:storyid" component={story}/>                             
-            <Route exact path="/" component={Home}/>
+            <Route path="/story/:userId/:storyId" component={story} />                             
+            <Route exact path="/" component={() => <Home stories={this.state.stories} />} />
             <Route exact path='/sign' component={signInPage} />
           </Switch>
                

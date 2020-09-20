@@ -16,9 +16,13 @@ const toolbar = ({ drawerClickHandler, currentUser }) => (
             <div className='options'>                
                 <Link className='option' to='/'>HOME</Link>
                 <Link className='option' to='/about'>ABOUT</Link>                 
-                <Link className='option' to='/post'>POST A STORY</Link>
+                
                 {currentUser ?
-                    <div className='option'  onClick={()=>auth.signOut()}>SIGN OUT</div>
+                    <div className='optional-options'>
+                        <Link className='option' to='/post'>POST A STORY</Link>
+                        <div className='option'  onClick={()=>auth.signOut()}>SIGN OUT</div>
+                    </div>
+                    
                     :
                     <Link className='option' to='/sign'>SIGN IN</Link>   
                 }                            

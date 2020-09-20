@@ -7,7 +7,8 @@
     // position: fixed;    
     background:#FFFFFF;
     height: 56px;
-    z-index: 100;   
+    z-index: 100; 
+    margin-bottom: 20px;  
     // box-shadow: 0 4px 2px -2px rgb(226, 222, 222);
     
 }
@@ -34,6 +35,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    
+    .optional-options {
+        display: flex;
+        flex-direction: row;
+    }
 
     .option {
       padding: 10px 15px;

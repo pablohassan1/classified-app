@@ -1,15 +1,24 @@
 .sign-in-and-sign-up {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-flow: row wrap;
   margin: 30px auto;
+  
 }
+ @media(min-width:931px){
+  .sign-in-and-sign-up{
+    transform: scale(1, 0.8);
+    margin-top: 0;
+  }
+
+ }
  @media (max-width: 930px){
   .sign-in-and-sign-up {
     
     justify-content: center;
     padding: 0 15px;
   }
-}
 
+  
+}
