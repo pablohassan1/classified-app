@@ -61,12 +61,12 @@ componentDidMount(){
   this.unsubscribeFromStorage = firestore.collectionGroup('stories').onSnapshot(querySnapshot => {
     var items =[];
     querySnapshot.forEach(doc => {       
-
-        items.push({userId: doc.E_.path.segments[6],id:doc.id, name: doc.data().name, story:doc.data().story, title:doc.data().title })     
+      
+        items.push({userId: doc.data().userId,id:doc.id, name: doc.data().name, story:doc.data().story, title:doc.data().title })     
 
     });
-    this.setState({stories: items}); 
-    console.log(this.state.stories)           
+    this.setState({stories: items});
+    console.log(this.state.stories);        
   });
       
 }

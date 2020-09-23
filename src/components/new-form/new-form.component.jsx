@@ -42,6 +42,7 @@ class NewForm extends React.Component {
                     title: title,
                     story: story,
                     name: currentUser.displayName,
+                    userId: currentUser.id,
                     created: createdAt
                 });
                 
