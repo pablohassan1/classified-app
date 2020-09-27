@@ -2,10 +2,14 @@ import React from 'react';
 import './Toolbar.scss';
 import SideDrawerToggleButton from '../SideDrawer/SideDrawerToggleButton';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils';
 
-const toolbar = ({ drawerClickHandler, currentUser }) => (
+const toolbar = ({ drawerClickHandler, currentUser }) => {    
+    
+    return (
+    
     <header className='toolbar'>    
            
             
@@ -18,13 +22,13 @@ const toolbar = ({ drawerClickHandler, currentUser }) => (
                 <Link className='option' to='/about'>ABOUT</Link>                 
                 
                 {currentUser ?
-                    <div className='optional-options'>
+                    (<div className='optional-options'>
                         <Link className='option' to='/post'>POST A STORY</Link>
                         <div className='option'  onClick={()=>auth.signOut()}>SIGN OUT</div>
-                    </div>
+                    </div>)
                     
                     :
-                    <Link className='option' to='/sign'>SIGN IN</Link>   
+                    (<Link className='option' to='/sign'>SIGN IN</Link>)   
                 }                            
             </div>
             
@@ -33,6 +37,10 @@ const toolbar = ({ drawerClickHandler, currentUser }) => (
             </div>
         
     </header>
-)
+)}
 
-export default toolbar;
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(toolbar);

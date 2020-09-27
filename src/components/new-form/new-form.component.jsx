@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import { firestore } from '../../firebase/firebase.utils';
 
@@ -17,8 +18,8 @@ class NewForm extends React.Component {
 
         this.state = {
             title:'',
-            story:'',           
-            currentUser: props.currentUser
+            story:''          
+            // currentUser: props.currentUser
         }
     }   
 
@@ -31,7 +32,8 @@ class NewForm extends React.Component {
 
     handleSubmit = async event => {
         event.preventDefault();        
-        const { title, story, currentUser } = this.state;
+        const { title, story } = this.state;
+        const { currentUser } = this.props;
 
         if(currentUser){
             const createdAt  = new Date();
@@ -101,5 +103,8 @@ class NewForm extends React.Component {
 
 } 
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
 
-export default withRouter(NewForm);
+export default withRouter(connect(mapStateToProps)(NewForm));

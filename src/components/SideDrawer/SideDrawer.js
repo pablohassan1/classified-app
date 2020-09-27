@@ -1,7 +1,11 @@
 import React from "react";
-import "./SideDrawer.scss";
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import "./SideDrawer.scss";
+
 import { auth } from '../../firebase/firebase.utils';
+
 
 const sideDrawer = ({ show, backdropClickHandler, currentUser }) => {
     let drawerClasses = "side-drawer";
@@ -32,5 +36,8 @@ const sideDrawer = ({ show, backdropClickHandler, currentUser }) => {
     );
 };
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
 
-export default sideDrawer;
+export default connect(mapStateToProps)(sideDrawer);
