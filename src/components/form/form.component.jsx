@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import { firestore } from '../../firebase/firebase.utils';
 
-import './new-form.styles.scss';
+import './form.styles.scss';
 
 import FormInput from '../form-input/form-input.component';
 import FormTextarea from '../form-textarea/form-textarea.component';

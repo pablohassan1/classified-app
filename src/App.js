@@ -9,7 +9,7 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
 import  Home  from "./components/Home/Home";
 import { About } from "./components/About/About"; 
-import NewForm from './components/new-form/new-form.component';
+import NewForm from './components/form/form.component';
 // import { PostForm } from "./components/PostForm/PostForm";
 import SingleStory from "./components/SingleStory/SingleStory";
 import signInPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.page';
