@@ -71,8 +71,7 @@ componentDidMount(){
         items.push({userId: doc.data().userId,id:doc.id, name: doc.data().name, story:doc.data().story, title:doc.data().title })     
 
     });
-    this.setState({stories: items});
-    console.log(this.state.stories);        
+    this.setState({stories: items});          
   });
       
 }
